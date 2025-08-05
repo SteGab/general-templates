@@ -1,0 +1,27 @@
+@startgantt Test-Gantt
+!include Plantuml_inc/Gantt_Customized_CI.inc
+Project starts at 2024-04-01
+
+saturday are closed
+sunday are closed
+
+
+-- Scoping --
+[M - Projekt beauftragt] as [M01_PRJ_Auftrag] happens at 2024-04-18
+[M - Zulieferer beauftragt] as [M02_SUB_Auftrag] happens 4 working days after [M01_PRJ_Auftrag]'s end
+[M - Client Implemetierung startet] as [M03_Start_Impl] happens 1 working days after [M02_SUB_Auftrag]'s end
+
+[M - Daten für Import definiert] as [M04_C_Send_Ready] happens at 2024-05-10
+[M - Daten für Export definiert] as [M05_C_Load_Ready] happens at 2024-05-10
+
+[M - Daten Import verfügbar] as [M06_Daten_Import_Ready] happens at 2024-05-10
+[M - Daten Export verfügbar] as [M07_Daten_Export_Ready] happens at 2024-05-10
+
+
+[Abstimmung Export-Schnittstelle mit Provider] as [Daten_Import] starts at [M03_Start_Impl]'s end and lasts 2 weeks
+[Abstimmung Import-Schnittstelle mit Provider] as [Daten_Export] starts at [M03_Start_Impl]'s end and lasts 2 weeks
+
+
+[Implementierung Daten-Import-Schnittstelle] as [Daten_Import_Impl] starts at [M06_Daten_Import_Ready]'s end and lasts 2 weeks
+[Implementierung Daten-Export-Schnittstelle] as [Daten_Export_Impl] starts at [M07_Daten_Export_Ready]'s end and lasts 2 weeks
+@endgantt
